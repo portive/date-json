@@ -1,12 +1,12 @@
 # DateJson
 
-A less than 1KB library to encode and decode dates in standard JSON.
+A lightweight (794 bytes) library to add Date support to JSON APIs.
 
-Use it to add Date support to APIs.
-
-Send database records that contain dates without having to manually transform them.
+Enables APIs to send database records that contain dates without having to manually transform them.
 
 ```ts
+import { DateJson } from "@portive/date-json"
+
 const json = DateJson.toJSON({ createdAt: new Date() })
 // --> { createdAt: { $date: 1519211811670 } }
 
@@ -16,13 +16,12 @@ const jsonWithDates = DateJson.fromJSON(json)
 
 ## Features
 
-- Lightweight: Less than 1 KB
-- JSON support: Transform to/from standard JSON
-- string support: Transform to/from string (stringify/parse)
-- End-to-end TypeScript: Keeps type integrity through transformations
-- Type Safety: Ensures input values are type safe
+- Lightweight: 795 bytes
+- JSON: Transform to/from JSON
+- String: Transform to/from string (stringify/parse)
+- TypeScript: Keeps type integrity through transformations
 
-## End-to-End TypeScript
+## TypeScript
 
 Keeps type integrity during encode/decode enabling type safety in API calls.
 
@@ -38,10 +37,8 @@ type MyJsonWithDates = typeof jsonWithDates
 // --> type: { createdAt: Date }
 ```
 
-## Inspiration
+## No `$date` Key Allowed
 
-The format is inspired by EJSON from Meteor with these differences:
+The key `$date` is prohibited in `toJSON` like in `DateJson.toJSON({ $date: 'today' })`. This will throw the error `Object with key $date is invalid`.
 
-- laser focused on just adding dates
-- preserves type integrity through transformations
-- aggressively lightweight
+This is intentional and is there to prevent confusion. Am I looking at a DateJson object or a plain JSON object with `$date` in it?
