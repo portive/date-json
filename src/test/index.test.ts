@@ -1,4 +1,10 @@
-import { toJsonValue, fromJsonValue, DateJsonToJson } from ".."
+import {
+  parse,
+  stringify,
+  toJsonValue,
+  fromJsonValue,
+  DateJsonToJson,
+} from ".."
 import { AssertType } from "@thesunny/assert-type"
 
 const DATE_MS = 946713600000
@@ -181,6 +187,15 @@ describe("ejson", () => {
           a: [{ at: expect.any(Date) }],
         },
       ])
+    })
+  })
+
+  describe("stringify and parse", () => {
+    it("should stringify and parse", async () => {
+      const s = stringify({ createdAt: new Date(DATE_MS) })
+      expect(s).toEqual('{"createdAt":{"$date":946713600000}}')
+      const value = parse(s)
+      expect(value).toEqual({ createdAt: new Date(DATE_MS) })
     })
   })
 })

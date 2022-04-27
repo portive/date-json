@@ -133,4 +133,12 @@ export function fromJsonValue<T extends JsonValue>(
   }
 }
 
-export const DateJson = { toJsonValue, fromJsonValue }
+export function stringify(dateJson: DateJsonValue) {
+  return JSON.stringify(toJsonValue(dateJson))
+}
+
+export function parse(s: string): DateJsonValue {
+  return fromJsonValue(JSON.parse(s))
+}
+
+export const DateJson = { toJsonValue, fromJsonValue, stringify, parse }
