@@ -39,6 +39,6 @@ type MyJsonWithDates = typeof jsonWithDates
 
 ## No `$date` Key Allowed
 
-The key `$date` is prohibited in `toJSON` like in `DateJson.toJSON({ $date: 'today' })`. This will throw the error `Object with key $date is invalid`.
+The key `$date` is prohibited in `toJSON` like in `DateJson.toJSON({ $date: 'today' })`. This throws the error `Object with key $date is invalid`.
 
-This is intentional and is there to prevent confusion. Am I looking at a DateJson object or a plain JSON object with `$date` in it?
+The design is intentional and is there to prevent confusion. Am I looking at a DateJson object or a plain JSON object with `$date` in it?

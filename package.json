@@ -1,5 +1,12 @@
 {
   "name": "@portive/date-json",
+  "description": "A lightweight (794 bytes) library to add Date support to JSON.",
+  "keywords": [
+    "json",
+    "JSON",
+    "date",
+    "ejson"
+  ],
   "version": "1.0.3",
   "main": ".dist/src/index.js",
   "author": "Sunny Hirai <thesunny@gmail.com>",
