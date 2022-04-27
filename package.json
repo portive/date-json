@@ -1,6 +1,6 @@
 {
   "name": "@portive/date-json",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": ".dist/src/index.js",
   "author": "Sunny Hirai <thesunny@gmail.com>",
   "license": "MIT",
