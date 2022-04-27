@@ -7,7 +7,7 @@
     "date",
     "ejson"
   ],
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": ".dist/src/index.js",
   "author": "Sunny Hirai <thesunny@gmail.com>",
   "license": "MIT",
