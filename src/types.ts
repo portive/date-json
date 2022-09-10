@@ -56,6 +56,7 @@ export type DateJsonToJson<T extends DateJsonValue | undefined> =
    * 
    * If we ever wanted to release this, then we can fix it.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   T extends { $date: any } ? never :
   /**
    * Convert `Date` to `{ $date: number }` like in EJSON specification.
@@ -63,8 +64,10 @@ export type DateJsonToJson<T extends DateJsonValue | undefined> =
   T extends Date ? { $date: number } :
   T extends DateJsonPrimitive ? T :
   T extends DateJsonArray ? Array<DateJsonToJson<T[number]>> :
+  // eslint-disable-next-line @typescript-eslint/ban-types
   T extends Function ? T :
-  T extends object ? { [key in keyof T]: DateJsonToJson<T[key]> } :
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  T extends {[key: string]: any} ? { [key in keyof T]: DateJsonToJson<T[key]> } :
   T
 
 /**

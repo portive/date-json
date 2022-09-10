@@ -79,6 +79,7 @@ describe("ejson", () => {
        * `never` and throw an Error if we do receive an object with a $date
        * property.
        */
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       type T = DateJsonToJson<{ $date: any }>
       AssertType.Equal<T, never>(true)
     })
