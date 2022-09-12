@@ -5,7 +5,7 @@ A lightweight (794 bytes) library to add Date support to JSON APIs.
 Enables APIs to send database records that contain dates without having to manually transform them.
 
 ```ts
-import { DateJson } from "@portive/date-json"
+import { DateJson } from "@forcloud/date-json"
 
 const json = DateJson.toJSON({ createdAt: new Date() })
 // --> { createdAt: { $date: 1519211811670 } }
