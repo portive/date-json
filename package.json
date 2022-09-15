@@ -1,6 +1,6 @@
 {
-  "name": "@forcloud/date-json",
-  "version": "1.0.6",
+  "name": "ejson-date",
+  "version": "1.0.7",
   "description": "A lightweight (794 bytes) library to add Date support to JSON.",
   "keywords": [
     "json",
